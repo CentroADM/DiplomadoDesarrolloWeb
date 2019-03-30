@@ -1,0 +1,113 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+body,html{
+  width: 100%;
+  height: 100%;
+}
+
+body *{
+  display: block;
+  /* outline: 1px solid black; */
+}
+
+body{
+  background: -moz-linear-gradient(left,#00FFFF ,#FFCC00 );
+  background: -webkit-linear-gradient(left,#00FFFF ,#FFCC00 );
+
+}
+li{
+  list-style: none;
+}
+
+header{
+  width: 100%;
+  height: 10%;
+}
+main{
+  width: 100%;
+  height: 85%;
+}
+footer{
+  width: 100%;
+  height: 5%;
+
+}
+
+
+header>h1{
+  width: 100%;
+  height: 50%;
+  text-align: center;
+}
+
+header>nav{
+  width: 100%;
+  height: 50%;
+}
+
+header>nav>ul{
+
+  height: 100%;
+
+  display: flex;
+
+  justify-content: space-evenly;
+
+  align-items: center;
+}
+#home{
+  width: 100%;
+  height: 100%;
+
+}
+
+.articulo{
+
+  width: 33.333%;
+
+  height: 33.333%;
+  /*fl*/
+  float: left;
+
+  position: relative;
+
+
+}
+
+
+.articulo > div{
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  border-radius: 5%;
+  overflow: hidden;
+
+}
+
+.articulo > div >img{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.articulo >.text {
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.85);
+  opacity: 0;
+  transition: opacity 0.3s,border-radius 1s ease-in-out;
+}
+
+
+.articulo:hover .text {
+  opacity: 1;
+  border-radius: 0%;
+}
