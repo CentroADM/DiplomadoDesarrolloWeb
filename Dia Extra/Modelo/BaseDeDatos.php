@@ -1,8 +1,8 @@
 <?php
-require_once('InterfaceBaseDeDatos.inc.php');
+require_once('./Modelo/InterfaceBaseDeDatos.inc.php');
 
 class BaseDeDatos implements InterfaceBaseDeDatos{
-    
+
 //Variable que contine la conexion a la base de datos.
     private $conexion;
     //constante que tiene la direccion del servidor
@@ -15,7 +15,7 @@ class BaseDeDatos implements InterfaceBaseDeDatos{
     const base = "escuela";
     //Nombre de la tabla.
     private $tabla;
-    
+
     /**
      * Constructor de la clase BaseDeDatos
      * Realiza la coneccion a la base de datos
@@ -29,13 +29,15 @@ class BaseDeDatos implements InterfaceBaseDeDatos{
             $this->conexion = new PDO($host, self::username, self::password); //realizamos la conexion
             // le decimos que lanze excepciones si exite un error.
             $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Conexion exitosa\n";
-            
-            
+            // print_r("Conexion exitosa\n");
+            // $this->debug_to_console("Conexion exitosa");
+
+
+
         }
         catch(PDOException $e){
             echo "Conexion fallo: " . $e->getMessage();
-            echo "\n";
+            // echo "\n";
         }
     }
 
@@ -59,7 +61,7 @@ class BaseDeDatos implements InterfaceBaseDeDatos{
     public function update(stdClass $o):bool{
         return false;
     }
- 
+
     public function exists(int $id):bool{
         return false;
     }
@@ -67,7 +69,7 @@ class BaseDeDatos implements InterfaceBaseDeDatos{
     public function delete(int $id):bool{
         return false;
     }
-    
+
     public function all():array{
         return null;
     }
@@ -76,5 +78,8 @@ class BaseDeDatos implements InterfaceBaseDeDatos{
         return null;
     }
 
-}
+    private function debug_to_console( $mensaje){
+      echo "<script>console.log( 'Debug Objects: ".$mensaje."' );</script>";
+    }
 
+}

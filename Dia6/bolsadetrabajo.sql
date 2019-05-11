@@ -59,6 +59,7 @@ INSERT INTO vacante(id,puesto,horario,lugar,salario,actividades,descripcion) VAL
 
 INSERT INTO empresavacante(id,empresaid,vacanteid) VALUES (1,1,1),(2,2,1),(3,2,2);
 
-select * from empresa e inner join empresavacante ev on e.id = ev.empresaid;
+-- select * from empresa e inner join empresavacante ev on e.id = ev.empresaid;
 
-select * from empresa e left join empresavacante ev on e.id = ev.empresaid inner join vacante v on ev.vacanteid = v.id ;
+-- select * from empresa e left join empresavacante ev on e.id = ev.empresaid inner join vacante v on ev.vacanteid = v.id ;
+select * from profesionista where correo in (select profesionistacorreo from postulacion p join vacante v on p.vacanteid =v.id join empresavacante ev on v.id =  ev.vacanteid join empresa e on ev.empresaid = e.id where e.nombre = 'Bimbo'  );

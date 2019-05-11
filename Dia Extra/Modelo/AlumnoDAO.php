@@ -1,6 +1,6 @@
 <?php
-require_once('BaseDeDatos.php');
-require_once('Alumno.php');
+require_once('./Modelo/BaseDeDatos.php');
+require_once('./Modelo/Alumno.php');
 
 
 class AlumnoDAO extends BaseDeDatos{
@@ -18,8 +18,7 @@ class AlumnoDAO extends BaseDeDatos{
         $o->genero = $a->getGenero();
         $o->correo = $a->getCorreo();
         parent::insert($o);
-        
+
     }
 
 }
-
